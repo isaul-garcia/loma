@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from 'react';
+import GlobalStyle from './globalStyles';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import WebFont from 'webfontloader';
+import { Home, CustomizeLoma } from './pages';
 
 function App() {
+  useEffect(() => {
+    WebFont.load({
+      google: {
+        families: ['IBM Plex Sans KR']
+      }
+    });
+   }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Router>
+      <GlobalStyle />
+      <Switch>
+        <Route path="/" exact component={Home} /> 
+        <Route path="/CustomizeLoma" exact component={CustomizeLoma} /> 
+      </Switch>
+    </Router>
+    </>
   );
 }
 
