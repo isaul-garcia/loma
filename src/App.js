@@ -18,7 +18,7 @@ function App() {
       <Router>
       <GlobalStyle />
       <Switch>
-        <Route path="/" exact component={Home} /> 
+        <Route path="/loma" exact component={Home} /> 
         <Route path="/CustomizeLoma" exact component={CustomizeLoma} /> 
       </Switch>
     </Router>

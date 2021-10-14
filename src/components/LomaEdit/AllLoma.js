@@ -299,6 +299,7 @@ const Interface = () => {
 
   const C11 = () => {
     setFloor(false)
+}
   }
   return (
     <>    
@@ -308,13 +309,13 @@ const Interface = () => {
         <BackBottom stepThree={stepThree} onClick={moveToSecond}>
           <BiArrowBack style={{ paddingTop: 5 }}/>
         </BackBottom>
-        <a href="/">
+        <a href="/loma">
           <BackButton stepThree={stepThree}>
             <BiX style={{ paddingTop: 4 }}/>
           </BackButton>
         </a>
         <Container stepOne={stepOne} stepTwo={stepTwo} stepThree={stepThree}>
-          <UiWrapper stepOne={stepOne} stepTwo={stepTwo} stepThree={stepThree}>
+          <UiWrapper stepOne={stepOne} stepTwo={stepTwo} stepThree={stepThree} id="my-node">
             <ModelWindow stepOne={stepOne} stepTwo={stepTwo} stepThree={stepThree}>   
               <img className="loma-logotype" src={Image1} alt="loma"/>
               <SelectionName stepThree={stepThree}>
@@ -322,7 +323,7 @@ const Interface = () => {
                   <h4><HiCursorClick style={{ marginBottom: -4, marginRight: 1 }} /> {snap.current}</h4>
                 </IconContext.Provider>
               </SelectionName>
-              <LomaEdit floor={floor}/>
+              {/* <LomaEdit floor={floor}/> */}
             </ModelWindow>   
             <Settings id="settings" stepOne={stepOne} stepTwo={stepTwo} stepThree={stepThree}>   
               <h4>Material Color</h4>    
@@ -371,8 +372,8 @@ const Interface = () => {
           <h3>Finish Design</h3>
         </FinishButton> 
         
-        <a href="/">
-          <OrderButton stepThree={stepThree}>
+        <a href="/loma">
+          <OrderButton stepThree={stepThree} id="snapshot">
             <h3>Order + Post in Showcase</h3>
           </OrderButton> 
         </a>

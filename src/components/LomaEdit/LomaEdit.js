@@ -244,6 +244,19 @@ const Interface = () => {
   const [floor, setFloor] = useState(false)
   const [tall, setTall] = useState(true)
   const [chair, setChair] = useState(false)
+
+  //test for loma interface using an array
+  /*
+  const [
+    [floor,setFloor],
+    [tall, setTall],
+    [chair, setChair]
+  ] = useState(false, true, false)
+
+  le falta pero aja
+  habria que ver como funciona el useState mejor
+  */
+
   //both top and bottom sit states
   const [plasticTop, setPlasticTop] = useState(true)
   const [plasticBottom, setPlasticBottom] = useState(true)
@@ -352,7 +365,7 @@ const Interface = () => {
 
   const redirect = () => {
     setLoading(true); 
-    setTimeout(() => {history.push('/')}, 1000);
+    setTimeout(() => {history.push('/loma')}, 1000);
 }
 
   return (
