@@ -1,23 +1,25 @@
 {
   "files": {
     "main.css": "/loma/static/css/main.312a5187.chunk.css",
-    "main.js": "/loma/static/js/main.48630f2c.chunk.js",
-    "main.js.map": "/loma/static/js/main.48630f2c.chunk.js.map",
+    "main.js": "/loma/static/js/main.9dd82abf.chunk.js",
+    "main.js.map": "/loma/static/js/main.9dd82abf.chunk.js.map",
     "runtime-main.js": "/loma/static/js/runtime-main.bb46bfec.js",
     "runtime-main.js.map": "/loma/static/js/runtime-main.bb46bfec.js.map",
-    "static/js/2.856e897f.chunk.js": "/loma/static/js/2.856e897f.chunk.js",
-    "static/js/2.856e897f.chunk.js.map": "/loma/static/js/2.856e897f.chunk.js.map",
+    "static/js/2.37fa345d.chunk.js": "/loma/static/js/2.37fa345d.chunk.js",
+    "static/js/2.37fa345d.chunk.js.map": "/loma/static/js/2.37fa345d.chunk.js.map",
     "index.html": "/loma/index.html",
     "static/css/main.312a5187.chunk.css.map": "/loma/static/css/main.312a5187.chunk.css.map",
-    "static/js/2.856e897f.chunk.js.LICENSE.txt": "/loma/static/js/2.856e897f.chunk.js.LICENSE.txt",
+    "static/js/2.37fa345d.chunk.js.LICENSE.txt": "/loma/static/js/2.37fa345d.chunk.js.LICENSE.txt",
     "static/media/arc-s-01.1d03e554.svg": "/loma/static/media/arc-s-01.1d03e554.svg",
+    "static/media/loma-3d-type.0da49aef.png": "/loma/static/media/loma-3d-type.0da49aef.png",
+    "static/media/loma-arr-10.60a473ed.png": "/loma/static/media/loma-arr-10.60a473ed.png",
     "static/media/loma-silhoutte-02.dfd4922b.svg": "/loma/static/media/loma-silhoutte-02.dfd4922b.svg",
     "static/media/loma-silhoutte.96358e81.svg": "/loma/static/media/loma-silhoutte.96358e81.svg",
     "static/media/loma-sits-01.7d556a0a.svg": "/loma/static/media/loma-sits-01.7d556a0a.svg",
     "static/media/loma-sits-02.54845bb3.svg": "/loma/static/media/loma-sits-02.54845bb3.svg",
     "static/media/loma-sits-03.3f15c143.svg": "/loma/static/media/loma-sits-03.3f15c143.svg",
     "static/media/loma-sits-04.c2f43598.svg": "/loma/static/media/loma-sits-04.c2f43598.svg",
-    "static/media/loma-type-black.45b1d13d.svg": "/loma/static/media/loma-type-black.45b1d13d.svg",
+    "static/media/loma-type-black-01.57767179.svg": "/loma/static/media/loma-type-black-01.57767179.svg",
     "static/media/loma-type-light.9cf65928.svg": "/loma/static/media/loma-type-light.9cf65928.svg",
     "static/media/loma-type.9854b4bc.svg": "/loma/static/media/loma-type.9854b4bc.svg",
     "static/media/loma1.5ff8972e.jpg": "/loma/static/media/loma1.5ff8972e.jpg",
@@ -38,13 +40,12 @@
     "static/media/ss6.39b6dd7c.jpg": "/loma/static/media/ss6.39b6dd7c.jpg",
     "static/media/ss7.5aae53ad.jpg": "/loma/static/media/ss7.5aae53ad.jpg",
     "static/media/ss8.4d28e786.jpg": "/loma/static/media/ss8.4d28e786.jpg",
-    "static/media/ss9.5ec7f8e7.jpg": "/loma/static/media/ss9.5ec7f8e7.jpg",
-    "static/media/welcome-array-03.bf1128ab.jpg": "/loma/static/media/welcome-array-03.bf1128ab.jpg"
+    "static/media/ss9.5ec7f8e7.jpg": "/loma/static/media/ss9.5ec7f8e7.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.bb46bfec.js",
-    "static/js/2.856e897f.chunk.js",
+    "static/js/2.37fa345d.chunk.js",
     "static/css/main.312a5187.chunk.css",
-    "static/js/main.48630f2c.chunk.js"
+    "static/js/main.9dd82abf.chunk.js"
   ]
 }
