@@ -206,7 +206,7 @@ export const OrderButton = styled(BigButton)`
     background-color: #5a74da;
     padding: 13px 21px;
     color: #fff;
-    right: ${({stepThree}) => (stepThree ? '33.5vw' : '')};
+    right: ${({stepThree}) => (stepThree ? '33.5vw' : '33.5vw')};
     opacity: ${({stepThree}) => (stepThree ? '1' : '0')};
     pointer-events: ${({stepThree}) => (stepThree ? 'all' : 'none')};
     user-select: none;

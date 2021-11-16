@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useHistory } from "react-router-dom";
-import { BiDownArrowAlt } from 'react-icons/bi';
+import { HiViewGrid } from 'react-icons/hi';
 import { IconContext } from 'react-icons/lib';
 import {
     ButtonsContainer,
@@ -9,18 +9,7 @@ import {
     ButtonText
 } from './CustomizeButton.elements' 
 
-const Welcome = ({loading, setLoading}) => {
-    const [scrolledDown, setNavbar] = useState(false);
-    
-    const changeBackground = () => {
-        if (window.scrollY >= 90) {
-            setNavbar(true);
-        } else {
-            setNavbar(false);
-        }
-    };
-    
-    window.addEventListener('scroll', changeBackground);
+const Welcome = ({loading, setLoading, scrolledDown, setNavbar}) => {
 
     const history = useHistory();
     const [enterLate, setEnterLate] = useState(true)  
@@ -36,12 +25,14 @@ const Welcome = ({loading, setLoading}) => {
     }
     return (
         <>
-            <IconContext.Provider value={{ color: '#fff', size: 35 }}>
+            <IconContext.Provider value={{ color: '#fff', size: 27.5 }}>
                 <ButtonsContainer enter={enterLate}>
                     <HoveringButton scrolledDown={scrolledDown} onClick={redirect}>
                         <ButtonText>Customize Your Loma</ButtonText>
                     </HoveringButton>
-                    <HoveringButtonRight scrolledDown={scrolledDown} ><ButtonText><BiDownArrowAlt /></ButtonText></HoveringButtonRight>
+                    <HoveringButtonRight scrolledDown={scrolledDown} >
+                        <ButtonText isIcon={true}><HiViewGrid /></ButtonText>
+                    </HoveringButtonRight>
                 </ButtonsContainer>
             </IconContext.Provider>
         </> 

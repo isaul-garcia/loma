@@ -3,7 +3,6 @@ import styled from 'styled-components/macro'
 export const FooterContainer = styled.div`
     width: 100vw;
     height: 50vh;
-    margin-top: 100px;
     position: absolute;
 `
 
@@ -31,8 +30,9 @@ export const BlackSection = styled.div`
 `
 
 export const LomaType = styled.img`
+    margin-top: 70px;
     width: 100%;
-    height: 200px;
+    height: 130px;
 `
 
 

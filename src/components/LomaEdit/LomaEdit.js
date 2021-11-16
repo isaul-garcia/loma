@@ -189,7 +189,7 @@ function LomaEdit({floor, chair, tall, plasticTop, meshTop, plasticBottom, meshB
   flatTop, flatBottom, softTop, softBottom})  {
   return (
     <>
-      <Canvas orthographic camera={{ zoom: 28, position: [10, 10, 10] }}>
+      <Canvas orthographic camera={{ zoom: 28, position: [10, 10, 10] }} >
         <ambientLight intensity={0.3} />
         <spotLight intensity={0.4} position={[5,20,20]}/>
         <pointLight intensity={0.75} />
@@ -213,7 +213,7 @@ const Interface = () => {
   const snap = useSnapshot(state)
 
   //loading screen state
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
   //removes loading screen
   useEffect(() => {
     setTimeout(() => {
@@ -253,8 +253,7 @@ const Interface = () => {
     [chair, setChair]
   ] = useState(false, true, false)
 
-  le falta pero aja
-  habria que ver como funciona el useState mejor
+  Is there a better way that reduce states?
   */
 
   //both top and bottom sit states

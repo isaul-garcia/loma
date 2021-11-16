@@ -1,14 +1,25 @@
 import React, {useState} from 'react';
-import { WelcomeSection, Pictures, Showcase, Footer, CustomizeButton } from '../../components';
+import { WelcomeSection, Pictures, Showcase, Footer, CustomizeButton, InfoSection } from '../../components';
 
 const Home = () => {  
+
+    const [scrolledDown, setNavbar] = useState(false);
+    
+    const changeBackground = () => {
+        if (window.scrollY >= 90) {
+            setNavbar(true);
+        } else {
+            setNavbar(false);
+        }
+    };
+    
+    window.addEventListener('scroll', changeBackground);
+
     const [loading, setLoading] = useState(false)
     return (
         <>
-            <WelcomeSection loading={loading}/>
-            <Pictures />
-            <Showcase />
-            <CustomizeButton loading={loading} setLoading={setLoading} />
+            <CustomizeButton loading={loading} setLoading={setLoading} scrolledDown={scrolledDown} setNavbar={setNavbar}/>
+            <WelcomeSection loading={loading} scrolledDown={scrolledDown}/>
             <Footer />
         </>
     )

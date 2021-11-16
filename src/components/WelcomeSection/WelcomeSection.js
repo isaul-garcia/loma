@@ -3,15 +3,17 @@ import {
     WelcomeContainer,
     LomaArray,
     LomaType,
-    Arc
+    Arc,
+    TypeContainer
 } from './WelcomeSection.elements' 
 import { Loader } from '../../globalStyles';
 
 import Image1 from '../../assets/arc-s-01.svg'
-import Image2 from '../../assets/loma-type-black.svg'
-import Image3 from '../../assets/welcome-array-03.jpg'
+import Image2 from '../../assets/loma-type-black-01.svg'
+import Image3 from '../../assets/loma-3d-type.png'
+import Image4 from '../../assets/loma-arr-10.png'
 
-const Welcome = ({loading, setLoading}) => {
+const Welcome = ({loading, setLoading, scrolledDown}) => {
     const [enterFirst, setEnterFirst] = useState(true)
     const [enterSecond, setEnterSecond] = useState(true)
     const [enterThird, setEnterThird] = useState(true)
@@ -32,9 +34,10 @@ const Welcome = ({loading, setLoading}) => {
         <>            
             <Loader loading={loading}/>
             <WelcomeContainer>
-                <LomaType src={Image2} enter={enterSecond}/>
-                <Arc src={Image1} enter={enterThird}/>
-                <LomaArray src={Image3} enter={enterFirst}/>
+                <TypeContainer>
+                  <LomaType src={Image3} enter={enterSecond}/>
+                </TypeContainer>
+                <LomaArray src={Image4} enter={enterFirst}/>
             </WelcomeContainer>
         </>
     )
