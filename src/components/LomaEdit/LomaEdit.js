@@ -1,7 +1,9 @@
-import React, { useRef, useState, Suspense, useEffect } from "react";
-import { Canvas } from "@react-three/fiber";
-import { useGLTF, OrbitControls, ContactShadows, Environment } from '@react-three/drei';
+import React, { useState, useEffect, useRef, Suspense } from "react";
 import { proxy, useSnapshot } from "valtio";
+import { useLoader } from "@react-three/fiber";
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, ContactShadows } from '@react-three/drei';
 import { CirclePicker } from 'react-color'
 import { BiArrowBack, BiX } from 'react-icons/bi';
 import { GiClick } from 'react-icons/gi';
@@ -33,6 +35,7 @@ import { Loader } from '../../globalStyles';
 
 import "../../styles.css";
 
+import model from '../../assets/this-loma.glb';
 import Image1 from '../../assets/loma-type.svg'
 import Image2 from '../../assets/loma-silhoutte.svg'
 import Image3 from '../../assets/loma-sits-01.svg'
@@ -53,122 +56,124 @@ const state = proxy({
   }
 });
 
-function Chair({props, chair, plasticTop, meshTop, plasticBottom, meshBottom,
-  flatTop, flatBottom, floor, softTop, softBottom, tall}) {
-  const group = useRef()
-  const snap = useSnapshot(state)
-  const { nodes, materials } = useGLTF('all-loma.glb')
-  const [hovered, set] = useState(null)
-  return (
-    <>
-    <group 
-      ref={group} {...props} 
-      dispose={null}
-      onPointerOver={(e) => (e.stopPropagation(), set(e.object.material.name))}
-      onPointerOut={(e) => e.intersections.length === 0 && set(null)}
-      onPointerMissed={() => (state.current = null)}
-      onPointerDown={(e) => (e.stopPropagation(), (state.current = e.object.material.name))}>
-      <group
-        position={[-0.17, -9.41, -0.38]}
-        rotation={[Math.PI / 2, 0, 0]}
-        scale={0.07}>
-        <mesh
-          geometry={nodes.PlasticTop.geometry}
-          material={nodes.PlasticTop.material}
-          material-color={snap.items.Top}
-          visible={plasticTop}
-        />
-        <mesh
-          geometry={nodes.MeshTop.geometry}
-          material={nodes.MeshTop.material}
-          material-color={snap.items.Top}
-          visible={meshTop}
-        />
-      </group>
-
-      <group 
-          position={[-0.17, -9.48, -0.38]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.07}>
-        <mesh
-          geometry={nodes.PlasticBottom.geometry}
-          material={nodes.PlasticBottom.material}
-          material-color={snap.items.Bottom}
-          visible={plasticBottom}
-        />
-        <mesh
-          geometry={nodes.MeshBottom.geometry}
-          material={nodes.MeshBottom.material}
-          material-color={snap.items.Bottom}
-          visible={meshBottom}
-        />
-      </group>
-
-      <group 
-          position={[-0.14, -9.35, -0.38]}
-          rotation={[Math.PI / 2, 0, 0]}
-          scale={0.07}>
-        <mesh
-          geometry={nodes.FlatTop.geometry}
-          material={nodes.FlatTop.material}
-          material-color={snap.items.Top}
-          visible={flatTop}
-        />
-      </group>
-
-      <group
+function ModelParts({ props, chair, plasticTop, meshTop, plasticBottom, meshBottom,
+    flatTop, flatBottom, floor, softTop, softBottom, tall }) {
+    const group = useRef()
+    const snap = useSnapshot(state)
+    const { nodes, materials } = useLoader(GLTFLoader, model);
+    const [hovered, set] = useState(null)
+    return (
+      <>
+        <group
+          ref={group} {...props}
+          dispose={null}
+          onPointerMissed={(e) => (state.current = null)}
+          onPointerDown={(e) => (e.stopPropagation(), (state.current = e.object.material.name))}
+        >
+          <group
+            position={[-0.17, -9.41, -0.38]}
+            rotation={[Math.PI / 2, 0, 0]}
+            scale={0.07}>
+            <mesh
+              geometry={nodes.PlasticTop.geometry}
+              material={nodes.PlasticTop.material}
+              material-color={snap.items.Top}
+              visible={plasticTop}
+            />
+            <mesh
+              geometry={nodes.MeshTop.geometry}
+              material={nodes.MeshTop.material}
+              material-color={snap.items.Top}
+              visible={meshTop}
+            />
+          </group>
+  
+          <group
+            position={[-0.17, -9.48, -0.38]}
+            rotation={[Math.PI / 2, 0, 0]}
+            scale={0.07}>
+            <mesh
+              geometry={nodes.PlasticBottom.geometry}
+              material={nodes.PlasticBottom.material}
+              material-color={snap.items.Bottom}
+              visible={plasticBottom}
+            />
+            <mesh
+              geometry={nodes.MeshBottom.geometry}
+              material={nodes.MeshBottom.material}
+              material-color={snap.items.Bottom}
+              visible={meshBottom}
+            />
+          </group>
+  
+          <group
+            position={[-0.14, -9.35, -0.38]}
+            rotation={[Math.PI / 2, 0, 0]}
+            scale={0.07}>
+            <mesh
+              geometry={nodes.FlatTop.geometry}
+              material={nodes.FlatTop.material}
+              material-color={snap.items.Top}
+              visible={flatTop}
+            />
+          </group>
+  
+          <group
+            position={[-0.17, -9.49, -0.38]}
+            rotation={[Math.PI / 2, 0, 0]}
+            scale={0.07}>
+            <mesh
+              geometry={nodes.FlatBottom.geometry}
+              material={nodes.FlatBottom.material}
+              material-color={snap.items.Bottom}
+              visible={flatBottom}
+            />
+            <mesh
+              geometry={nodes.ShortChair.geometry}
+              material={nodes.ShortChair.material}
+              material-color={snap.items.ShortChair}
+              visible={chair}
+            />
+            <mesh
+              geometry={nodes.TextileTop.geometry}
+              material={nodes.TextileTop.material}
+              material-color={snap.items.Top}
+              visible={softTop}
+            />
+            <mesh
+              geometry={nodes.TextileBottom.geometry}
+              material={nodes.TextileBottom.material}
+              material-color={snap.items.Bottom}
+              visible={softBottom}
+            />
+            <mesh
+              geometry={nodes.TallChair.geometry}
+              material={nodes.TallChair.material}
+              material-color={snap.items.Legs}
+              visible={tall}
+            />
+          </group>
+        </group>
+        <group
           position={[-0.17, -9.49, -0.38]}
           rotation={[Math.PI / 2, 0, 0]}
           scale={0.07}>
-        <mesh
-          geometry={nodes.FlatBottom.geometry}
-          material={nodes.FlatBottom.material}
-          material-color={snap.items.Bottom}
-          visible={flatBottom}
-        />
-        <mesh
-          geometry={nodes.ShortChair.geometry}
-          material={nodes.ShortChair.material}
-          material-color={snap.items.ShortChair}
-          visible={chair}
-        />
-        <mesh
-          geometry={nodes.TextileTop.geometry}
-          material={nodes.TextileTop.material}
-          material-color={snap.items.Top}
-          visible={softTop}
-        />
-        <mesh
-          geometry={nodes.TextileBottom.geometry}
-          material={nodes.TextileBottom.material}
-          material-color={snap.items.Bottom}
-          visible={softBottom}
-        />
-        <mesh
-          geometry={nodes.TallChair.geometry}
-          material={nodes.TallChair.material}
-          material-color={snap.items.Legs}
-          visible={tall}
-        />
-      </group>
-    </group>
-    <group
-    position={[-0.17, -9.49, -0.38]}
-    rotation={[Math.PI / 2, 0, 0]}
-    scale={0.07}>
-    <mesh
-      geometry={nodes.Base.geometry}
-      material={materials.Floor}
-      material-color={snap.items.Floor}
-      visible={floor}
-    />
-  </group>
-  </>
-  )
-}
+          <mesh
+            geometry={nodes.Base.geometry}
+            material={materials.Floor}
+            material-color={snap.items.Floor}
+            visible={floor}
+          />
+        </group>
+      </>
+    )
+  }
+  
+//useGLTF.preload("/this-loma.glb");
+
 
 function Picker() {
-  const snap = useSnapshot(state)
+    const snap = useSnapshot(state)
   const [selectedColor, setSelectedColor] = useState("#fff")
   return (
     <div className="picker-container">
@@ -185,35 +190,33 @@ function Picker() {
     )
 }
 
-function LomaEdit({floor, chair, tall, plasticTop, meshTop, plasticBottom, meshBottom,
-  flatTop, flatBottom, softTop, softBottom})  {
-  return (
-    <>
-      <Canvas orthographic camera={{ zoom: 28, position: [10, 10, 10] }} >
-        <ambientLight intensity={0.3} />
-        <spotLight intensity={0.4} position={[5,20,20]}/>
-        <pointLight intensity={0.75} />
-        <Suspense fallback={null}>
-          <Chair floor={floor} chair={chair} tall={tall}
-              plasticTop={plasticTop} plasticBottom={plasticBottom}
-              flatTop={flatTop} flatBottom={flatBottom}
-              softTop={softTop} softBottom={softBottom}
-              meshTop={meshTop} meshBottom={meshBottom}/>
-          <Environment files="hdr.hdr" />
-          <ContactShadows rotation-x={Math.PI/2} position={[0, 1, 0]} opacity={0.9} width={10} height={10} blur={1.5} far={4} />
-        </Suspense>
-        <OrbitControls maxPolarAngle={Math.PI/1.9}  enablePan={false} enableZoom={false} enableRotate={true}/>
-      </Canvas>
-    </>
-  );
-}
-
+function LomaCanvas({floor, chair, tall, plasticTop, meshTop, plasticBottom, meshBottom,
+    flatTop, flatBottom, softTop, softBottom, snap})  {
+    return (
+      <>
+        <Canvas orthographic camera={{ zoom: 28, position: [10, 10, 10] }} >
+          <ambientLight intensity={0.3} />
+          <spotLight intensity={0.4} position={[5,20,20]}/>
+          <pointLight intensity={0.75} />
+          <Suspense fallback={null}>
+            <ModelParts floor={floor} chair={chair} tall={tall}
+                plasticTop={plasticTop} plasticBottom={plasticBottom}
+                flatTop={flatTop} flatBottom={flatBottom}
+                softTop={softTop} softBottom={softBottom}
+                meshTop={meshTop} meshBottom={meshBottom} />
+            <ContactShadows rotation-x={Math.PI/2} position={[0, 1, 0]} opacity={0.9} width={10} height={10} blur={1.5} far={4} />
+          </Suspense>
+          <OrbitControls maxPolarAngle={Math.PI/1.9}  enablePan={false} enableZoom={false} enableRotate={true}/>
+        </Canvas>
+      </>
+    );
+  }
 
 const Interface = () => {
   const snap = useSnapshot(state)
 
   //loading screen state
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   //removes loading screen
   useEffect(() => {
     setTimeout(() => {
@@ -387,7 +390,7 @@ const Interface = () => {
                   <h4>{mobileButton ? (<HiCursorClick style={{ marginBottom: -4, marginRight: 1 }} />) : (<GiClick style={{ marginBottom: -4, marginRight: 1 }}/>)} {snap.current}</h4>
                 </IconContext.Provider>
               </SelectionName>
-              <LomaEdit floor={floor} tall={tall} chair={chair} 
+              <LomaCanvas floor={floor} tall={tall} chair={chair} 
               plasticTop={plasticTop} plasticBottom={plasticBottom}
               flatTop={flatTop} flatBottom={flatBottom}
               softTop={softTop} softBottom={softBottom}
@@ -428,7 +431,7 @@ const Interface = () => {
               </LegSettings>
               <ColorSettings mobilePage={pageThree}>
                 <div><h4>Material Color</h4><h3>{showMobileButton ? "Tap part to change colors" : "Click part to change colors"}</h3></div>
-                <Picker />
+                <Picker snap={snap}/>
               </ColorSettings>
             </Settings>     
           </UiWrapper>

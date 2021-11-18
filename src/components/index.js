@@ -1,4 +1,4 @@
-export { default as LomaEdit } from './LomaEdit/Interface'
+export { default as LomaEdit } from './LomaEdit/LomaEdit'
 export { default as WelcomeSection } from './WelcomeSection/WelcomeSection'
 export { default as Pictures } from './Pictures/Pictures'
 export { default as CustomizeButton } from './CustomizeButton/CustomizeButton'

@@ -44,7 +44,7 @@ import Image7 from '../../assets/loma-silhoutte-02.svg'
 const state = proxy({
   current: null,
   items: {
-    Legs: '#bdbdbd',
+    Legs: '#0ff',
     Floor: '#bdbdbd',
     Bottom: '#bdbdbd',
     Top: '#bdbdbd',
@@ -54,8 +54,7 @@ const state = proxy({
 });
 
 
-function Picker() {
-  const snap = useSnapshot(state)
+function Picker(snap) {
   const [selectedColor, setSelectedColor] = useState("#fff")
   return (
     <div className="picker-container">
@@ -251,11 +250,11 @@ const Interface = () => {
                   <h4>{mobileButton ? (<HiCursorClick style={{ marginBottom: -4, marginRight: 1 }} />) : (<GiClick style={{ marginBottom: -4, marginRight: 1 }}/>)} {snap.current}</h4>
                 </IconContext.Provider>
               </SelectionName>
-              {/* <LomaCanvas floor={floor} tall={tall} chair={chair} 
+              <LomaCanvas floor={floor} tall={tall} chair={chair} 
               plasticTop={plasticTop} plasticBottom={plasticBottom}
               flatTop={flatTop} flatBottom={flatBottom}
               softTop={softTop} softBottom={softBottom}
-              meshTop={meshTop} meshBottom={meshBottom}/> */}
+              meshTop={meshTop} meshBottom={meshBottom} snap={snap}/>
             </ModelWindow>   
             <Settings id="settings" stepOne={stepOne} stepTwo={stepTwo} stepThree={stepThree}>                
               <SitSettings mobilePage={pageOne}>
@@ -292,7 +291,7 @@ const Interface = () => {
               </LegSettings>
               <ColorSettings mobilePage={pageThree}>
                 <div><h4>Material Color</h4><h3>{showMobileButton ? "Tap part to change colors" : "Click part to change colors"}</h3></div>
-                <Picker />
+                <Picker snap={snap}/>
               </ColorSettings>
             </Settings>     
           </UiWrapper>

@@ -7,7 +7,7 @@ import "../../styles.css";
 import ModelParts from './ModelParts';
 
 function LomaCanvas({floor, chair, tall, plasticTop, meshTop, plasticBottom, meshBottom,
-  flatTop, flatBottom, softTop, softBottom})  {
+  flatTop, flatBottom, softTop, softBottom, snap})  {
   return (
     <>
       <Canvas orthographic camera={{ zoom: 28, position: [10, 10, 10] }} >
@@ -19,7 +19,7 @@ function LomaCanvas({floor, chair, tall, plasticTop, meshTop, plasticBottom, mes
               plasticTop={plasticTop} plasticBottom={plasticBottom}
               flatTop={flatTop} flatBottom={flatBottom}
               softTop={softTop} softBottom={softBottom}
-              meshTop={meshTop} meshBottom={meshBottom}/>
+              meshTop={meshTop} meshBottom={meshBottom} snap={snap} />
           <ContactShadows rotation-x={Math.PI/2} position={[0, 1, 0]} opacity={0.9} width={10} height={10} blur={1.5} far={4} />
         </Suspense>
         <OrbitControls maxPolarAngle={Math.PI/1.9}  enablePan={false} enableZoom={false} enableRotate={true}/>
