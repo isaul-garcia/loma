@@ -20,7 +20,6 @@ const Home = () => {
         <>
             <CustomizeButton loading={loading} setLoading={setLoading} scrolledDown={scrolledDown} setNavbar={setNavbar}/>
             <WelcomeSection loading={loading} scrolledDown={scrolledDown}/>
-            <Footer />
         </>
     )
 }

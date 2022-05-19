@@ -6,6 +6,7 @@ export const WelcomeContainer = styled.div`
     background-color: #dbdbdb;
     margin: auto;
     pointer-events: none;
+    overflow-y: hidden;
 `
 
 export const Arc = styled.img`
