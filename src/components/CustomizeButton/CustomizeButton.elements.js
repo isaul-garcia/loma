@@ -15,7 +15,7 @@ export const HoveringButton = styled.div`
     margin-top: 5em;
     cursor: pointer;
     position: absolute;
-    background-color: ${({scrolledDown}) => (scrolledDown ? '#000' : '#4060e1')};
+    background-color: ${({scrolledDown}) => (scrolledDown ? '#ccc' : '#4060e1')};
     opacity: ${({scrolledDown}) => (scrolledDown ? '0' : '1')};
     text-decoration: none;
     pointer-events: all;
@@ -23,8 +23,6 @@ export const HoveringButton = styled.div`
     z-index: 9;
     border-radius: 50px;
     vertical-align: center;
-    animation-name: buttonPalette;
-    animation-duration: 0.2s;
 
     &:hover {
         background-color: #232323;
@@ -44,9 +42,13 @@ export const HoveringButtonRight = styled(HoveringButton)`
     margin-right: 10%;
     width: 50px;
     padding: 6px;
-    background-color: #111111;
+    background-color: #bbb;
     cursor: auto;
     opacity: ${({scrolledDown}) => (scrolledDown ? '0' : '1')};
+
+    &:hover {
+        background-color: #bbb;
+    }
     
     @media screen and (max-width: 991px) {
         margin-right: 5.75%;

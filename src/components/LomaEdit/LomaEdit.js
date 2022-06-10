@@ -179,7 +179,7 @@ function Picker() {
     <div className="picker-container">
       <CirclePicker className="picker"
         width="100%"
-        colors={["#0f0fff", "#767fbb", "#d8adb4", "#81ac94", "#cb5f5c", "#9fcad1", "#d1af31", "#00ff00", "#e91e63", "#9c27b0", "#673ab7", "#3f51b5", "#ffffff", "#bdbdbd", "#00bcd4", "#009688", "#4caf50", "#8bc34a", "#cddc39", "#ffeb3b", "#ffc107", "#ff9800", "#ff5722", "#795548", "#303030"]}
+        colors={["#ffffff", "#bdbdbd", "#303030", "#ffe1fe", "#fffee1","#dfc5ff", "#FFF0F5", "	#F0FFd0", "#cb5f5c", "#4d2800", "#795548", "#df204d", "#B81324", "#e91e63", "#9c27b0", "#bf80ff", "#673ab7", "#6b367d", "#3f51b5", "#0f0fff", "#767fbb", "#00bcd4","#9fcad1", "#bff1ff", "#89f5f5", "#009688", "#0b4126", "#0fbd66", "#00ff80", "#b3ffd9", "#81ac94", "#2F4F4F", "#4caf50", "#00ff00", "#8bc34a", "#339933", "#1e3617", "#bfff00", "#cddc39", "#808000", "#ffeb3b", "#ffd24d",  "#d1af31", "#b4a064", "#ffc107", "#ff9800", "#ff6633", "#ff4000", "#aa3109"]}
         color={state.items[snap.current]}
         onChange={(color) => {
           setSelectedColor(color.hex);

@@ -25,7 +25,7 @@ const Welcome = ({loading, setLoading, scrolledDown, setNavbar}) => {
     }
     return (
         <>
-            <IconContext.Provider value={{ color: '#fff', size: 27.5 }}>
+            <IconContext.Provider value={{ color: '#dcdcdc', size: 27.5 }}>
                 <ButtonsContainer enter={enterLate}>
                     <HoveringButton scrolledDown={scrolledDown} onClick={redirect}>
                         <ButtonText>Customize Your Loma</ButtonText>
