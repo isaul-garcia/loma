@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/loma/static/css/main.312a5187.chunk.css",
-    "main.js": "/loma/static/js/main.9b5641b9.chunk.js",
-    "main.js.map": "/loma/static/js/main.9b5641b9.chunk.js.map",
+    "main.js": "/loma/static/js/main.de405297.chunk.js",
+    "main.js.map": "/loma/static/js/main.de405297.chunk.js.map",
     "runtime-main.js": "/loma/static/js/runtime-main.bb46bfec.js",
     "runtime-main.js.map": "/loma/static/js/runtime-main.bb46bfec.js.map",
     "static/js/2.8d80d5eb.chunk.js": "/loma/static/js/2.8d80d5eb.chunk.js",
@@ -46,6 +46,6 @@
     "static/js/runtime-main.bb46bfec.js",
     "static/js/2.8d80d5eb.chunk.js",
     "static/css/main.312a5187.chunk.css",
-    "static/js/main.9b5641b9.chunk.js"
+    "static/js/main.de405297.chunk.js"
   ]
 }
